@@ -46,6 +46,19 @@
             //Assert
             $this->assertEquals("The Little Mermaid", $result);
         }
+//fourth Test: take mixed case phrase and convert to lower case
+        function test_makeLowerCase_mixedCase()
+        {
+            //Arrange
+            $test_TitleCaseGenerator = new TitleCaseGenerator;
+            $input = "SuPERMan";
+
+            //Act
+            $result = $test_TitleCaseGenerator->makeTitleCase($input);
+
+            //Assert
+            $this->assertEquals("superman", $result);
+        }
     }
 
  ?>

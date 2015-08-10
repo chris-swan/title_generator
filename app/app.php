@@ -14,7 +14,13 @@
 
     $app->get("/view_title_case", function() use($app){
         $my_TitleCaseGenerator = new TitleCaseGenerator;
-        $title_cased_phrase = $my_TitleCaseGenerator->makeTItleCase($_GET['phrase']);
+        $lower_cased_phrase = $my_TitleCaseGenerator->makeLowerCase($_GET['phrase']);
+        return $app['twig']->render('title_case.twig', array('result' => $lower_cased_phrase));
+    });
+
+    $app->get("/view_title_case", function() use($app){
+        $my_TitleCaseGenerator = new TitleCaseGenerator;
+        $title_cased_phrase = $my_TitleCaseGenerator->makeTitleCase($_GET['lower_cased_phrase']);
         return $app['twig']->render('title_case.twig', array('result' => $title_cased_phrase));
 
     });
